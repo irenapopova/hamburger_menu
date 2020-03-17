@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <title>CSS Hamburger Menu</title>
+</head>
+
+<body>
+    <div class="menu-wrap">
+        <!-- the hamburger menu has a checkbox with a toggler class to style the check state without javascript, -->
+        <!--targeting the checked state with a toggler class-->
+        <input type="checkbox" class="toggler">
+        <div class="hamburger">
+            <div></div>
+        </div>
+        <!-- MENU CLASS-->
+        <div class="menu">
+            <!-- the first div below is the immediate div within the menu class-->
+            <div>
+                <div>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--HEADER TAG -->
+    <header class="show_layout">
+        <!--THE BASIC CONTAINER TO MOVE EVERYTHING INTO THE MIDDLE-->
+        <div class="container show_layout-inner">
+            <!-- the class inner wraps around the whole content so to be centered using flexbox-->
+            <h1>Camping & Hiking</h1>
+            <h2> <b> The Black Forest </b> </h2>
+            <p> Hiking is an adventurous experience.
+                Germany’s iconic Black Forest has been the inspiration for the famous Brothers Grimm fairytales and
+                other German myths and legends. Located in the southwest in the state of Baden-Württemberg, it’s one of
+                the most popular hiking and trekking locations for outdoor pilgrims. The area is packed with mountainous
+                terrain, miles of breathtaking forest dotted in between with charming little villages. There are three
+                main long-distance hiking routes; the Westweg trail in the west, the Mittelweg trail in the central
+                forest, and the Ostweg trail in the east.
+            </p>
+            <a href="#" class="btn">Explore More</a>
+        </div>
+    </header>
+</body>
+
+</html>

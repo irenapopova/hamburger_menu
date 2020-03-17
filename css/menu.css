@@ -1,0 +1,164 @@
+/* wrapping the menu */
+.menu-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /*to make sure it is on top */
+}
+
+.menu-wrap .toggler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    /*the cursor should be a pointer when hover over it*/
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+}
+
+/* menu-wrap class */
+.menu-wrap .hamburger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    padding: 1rem;
+    /*the variables are in the style.css file which in html is above the main.css
+    so they can be inherited here  */
+    background: var(--primary-color);
+    /*the primary color has the alpha value*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hamburger line */
+/* the middle line wrap*/
+/* with greater than > sign and then div - targeting the the first div in html after hamburger class */
+.menu-wrap .hamburger>div {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    /*the first line of the hamburger menu */
+}
+
+
+/* Top and Bottom Line */
+/*with the :before and :after pseudo selectors to move both lines of hamburger menu above*/
+.menu-wrap .hamburger>div:before,
+.menu-wrap .hamburger>div:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+}
+
+/* Moves line down */
+.menu-wrap .hamburger>div:after {
+    top: 10px;
+}
+
+/* Toggler Animate */
+/* animating the lines */
+.menu-wrap .toggler:checked+.hamburger>div {
+    /* using transform css property to rotate the menu */
+    transform: rotate(135deg);
+}
+
+/* Turn lines into X */
+.menu-wrap .toggler:checked+.hamburger>div:before,
+.menu-wrap .toggler:checked+.hamburger>div:after {
+    top: 0;
+    transform: rotate(90deg);
+    /* rotate the hamburger menu  X fashion*/
+    /* transform - when click on hamburger menu it rotates 90deg and turns into X */
+}
+
+/* X rotate on hover when checked */
+.menu-wrap .toggler:checked:hover+.hamburger>div {
+    transform: rotate(225deg);
+}
+
+/* Show menu */
+/* targeting the menu inside*/
+/*  this selector  target the menu inside  .menu-wrap .toggler:checked~.menu*/
+.menu-wrap .toggler:checked~.menu {
+    visibility: visible;
+}
+
+.menu-wrap .toggler:checked~.menu>div {
+    transform: scale(1);
+    /* 1 is its original scale*/
+    transition-duration: var(--menu-speed);
+    /* in duration is added the menu speed variable so the speed can be easily changed */
+}
+
+/* the inner div, the second div */
+.menu-wrap .toggler:checked~.menu>div>div {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+/* menu */
+.menu-wrap .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* targeting the first div - immediate div : .menu>div */
+.menu-wrap .menu>div {
+    /* the overlay color is dar and transparent */
+    background: var(--overlay-color);
+    border-radius: 50%;
+    width: 200vw;
+    height: 200vw;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    /*The scale() function is specified with either one or two values, which represent the amount of scaling to be applied in each direction. */
+    transform: scale(0);
+    transition: all 0.4s ease;
+}
+
+.menu-wrap .menu>div>div {
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu>div>div>ul>li {
+    list-style: none;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.menu-wrap .menu>div>div>ul>li>a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+}
